@@ -1,7 +1,5 @@
 const buttonTag = document.querySelector(".btn");
 const parentTag = document.querySelector(".parent");
-// const btnClick = document.querySelector('#btnClick');
-// const afterClick = document.querySelector('#afterClick');
 
 const openToastAlert = () => {
   parentTag.innerHTML = "";
@@ -10,14 +8,14 @@ const openToastAlert = () => {
   // create toastAlertTextTag
   const toastAlertTextTag = document.createElement("div");
   toastAlertTextTag.append(
-    `Hello I'm Toast Alert Testing with pure Js,Jquery and Boostrap..............`
+    `Out Wesbsite Using Cookiee......lorem bar nyar thar ya kar...`
   );
   toastAlertTextTag.classList.add("toastAlertText");
 
   // create closeButtonTag
   const closeButtonTag = document.createElement("div");
-  closeButtonTag.append("Close");
-  closeButtonTag.classList.add("btn", "btn-light");
+  closeButtonTag.append("Accept");
+  closeButtonTag.classList.add("btn", "btn-sm", "btn-light");
 
   // append toastAlertTextTag, closeButtonTag to toastAlertContainerTag
   toastAlertContainerTag.append(toastAlertTextTag, closeButtonTag);
@@ -33,14 +31,13 @@ const openToastAlert = () => {
   closeButtonTag.addEventListener("click", () => {
     localStorage.setItem("accepted", "1");
     parentTag.style.bottom = `-${parentTag.offsetHeight}px`;
-    $("#afterClick").removeClass("afterClick");
   });
 };
 
-$(document).ready(() => {
-  $("#btnClick").click(() => {
+window.addEventListener('load', () => {
+  const accept = localStorage.getItem('accepted');
+  if (accept != "1") {
     openToastAlert();
-    $("#afterClick").addClass("afterClick");
-  });
-});
+  }
+})
 
