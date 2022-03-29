@@ -28,3 +28,7 @@ body {
 .toastAlertText {
   margin-right: 10px;
 }
+
+.btn-light:hover{
+  opacity: 0.9;
+}
